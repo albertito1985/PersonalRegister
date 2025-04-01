@@ -4,15 +4,14 @@ namespace PersonalRegister
 {
     class Employee
     {
-        private string name;
-        private string salary;
+        public string name;
+        public string salary;
 
         public Employee(string n, string s)
         {
             name = n;
             salary = s;
         }
-
     }
     internal class Program
     {   
@@ -22,8 +21,13 @@ namespace PersonalRegister
             byte menuChoice;
             bool exit = false;
             List<Employee> employeeList = new List<Employee>();
-            
-            Console.WriteLine("-----------------\nPERSONAL REGISTER\n-----------------"); //Tittel
+
+            //Titel
+            Console.WriteLine("-----------------");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("PERSONAL REGISTER");
+            Console.ResetColor();
+            Console.WriteLine("-----------------");
 
             do
             {
@@ -33,9 +37,9 @@ namespace PersonalRegister
                 {
                     case 1:
                         employeeList.Add(FeedData());
-                        Console.WriteLine("Add to list");
                         break;
                     case 2:
+                        PrintEmployeesList(employeeList);
                         break;
                     case 3:
                         exit = true;
@@ -132,11 +136,45 @@ namespace PersonalRegister
                 {
                     Console.Write("Salary not valid. ");
                 }
-            } while (!nameValidated);
+            } while (!salaryValidated);
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Employee successfully created.");
+            Console.ResetColor();
 
             //return Employee with name and salary
 
             return new Employee(name, salaryString);
+        }
+
+        static void PrintEmployeesList(List<Employee>employeesList)
+        {
+            if (employeesList.Count > 0)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("-----------LIST-----------");
+                foreach (Employee e in employeesList)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(e.name);
+                    Console.ResetColor();
+                    string spaces = "                    ";
+                    spaces = spaces.Substring(0, e.name.Length);
+                    Console.Write(spaces);
+                    Console.Write(e.salary);
+                    Console.Write("\n");
+
+                }
+                Console.WriteLine("--------------------------");
+                Console.WriteLine("");
+            }
+            else
+            {
+                Console.WriteLine("");
+                Console.WriteLine("There are no employees in the list.");
+                Console.WriteLine("");
+            }
+            
         }
     }
 }
