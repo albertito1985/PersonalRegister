@@ -153,13 +153,16 @@ namespace PersonalRegister
             {
                 Console.WriteLine("");
                 Console.WriteLine("-----------LIST-----------");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Employee            Salary");
+                Console.ResetColor();
+
                 foreach (Employee e in employeesList)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    
                     Console.Write(e.name);
-                    Console.ResetColor();
                     string spaces = "                    ";
-                    spaces = spaces.Substring(0, e.name.Length);
+                    spaces = spaces.Substring(0, 20-e.name.Length);
                     Console.Write(spaces);
                     Console.Write(e.salary);
                     Console.Write("\n");
