@@ -65,7 +65,6 @@ namespace PersonalRegister
                 Console.WriteLine("2 - List all employees.");
                 Console.WriteLine("3 - Exit.");
                 Console.WriteLine("--------------------------");
-                Console.WriteLine();
                 Console.WriteLine("Select a number from the menu.");
 
                 answer = Console.ReadLine();
@@ -105,7 +104,8 @@ namespace PersonalRegister
             int salary;
             string salaryString ="";
             string name="";
-            
+            Console.WriteLine("");
+
             //feed name
             do
             {
@@ -169,7 +169,6 @@ namespace PersonalRegister
 
                 }
                 Console.WriteLine("--------------------------");
-                Console.WriteLine("");
             }
             else
             {
