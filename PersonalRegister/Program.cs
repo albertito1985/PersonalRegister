@@ -152,7 +152,7 @@ namespace PersonalRegister
             if (employeesList.Count > 0)
             {
                 Console.WriteLine("");
-                Console.WriteLine("-----------LIST-----------");
+                Console.WriteLine("-------EMPLOYEE LIST-------");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Employee            Salary");
                 Console.ResetColor();
@@ -177,7 +177,10 @@ namespace PersonalRegister
                 Console.WriteLine("There are no employees in the list.");
                 Console.WriteLine("");
             }
-            
+            Console.WriteLine("Press ENTER to go back to the Menu.");
+            Console.ReadLine();
+
+
         }
     }
 }
